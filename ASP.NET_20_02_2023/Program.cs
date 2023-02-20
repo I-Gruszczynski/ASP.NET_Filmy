@@ -14,6 +14,7 @@ namespace ASP.NET_20_02_2023
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            //test
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
