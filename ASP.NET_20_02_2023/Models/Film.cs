@@ -11,15 +11,15 @@ namespace ASP.NET_20_02_2023.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Podaj tytul")]
+        [Required(ErrorMessage ="Wpisz tytul")]
         [StringLength(50)]
         public string Tytul { get; set; }
 
-        [Required(ErrorMessage = "Podaj rezysera")]
+        [Required(ErrorMessage = "Wprowadz rezysera")]
         [StringLength(50)]
         public string Rezyser { get; set; }
 
-        [Required(ErrorMessage = "Podaj opis")]
+        [Required(ErrorMessage = "Dodaj opis")]
         [StringLength(200)]
         public string Opis { get; set; }
         public decimal? Cena { get; set; }
