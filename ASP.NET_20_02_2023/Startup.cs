@@ -52,8 +52,13 @@ namespace ASP.NET_20_02_2023
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "Strona/{name}",
+                defaults: new { controller = "Home", action = "StronyStatyczne" });
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                    //defaults: new { controller = "Home", action = "StronyStatyczne" });
             });
         }
     }

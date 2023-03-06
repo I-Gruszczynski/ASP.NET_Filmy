@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_20_02_2023.Migrations
 {
     [DbContext(typeof(FilmyContext))]
-    [Migration("20230227100128_init")]
-    partial class init
+    [Migration("20230306100829_init4")]
+    partial class init4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -171,12 +171,44 @@ namespace ASP.NET_20_02_2023.Migrations
                     b.Property<string>("Nazwa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Opis")
-                        .HasColumnType("int");
+                    b.Property<string>("Opis")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Kategorie");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nazwa = "Horror",
+                            Opis = "To jest horror"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nazwa = "Komedia",
+                            Opis = "To jest komedia"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nazwa = "Historyczny",
+                            Opis = "To jest historyczny"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nazwa = "Wojenny",
+                            Opis = "To jest wojenny"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nazwa = "Familijny",
+                            Opis = "To jest familijny"
+                        });
                 });
 
             modelBuilder.Entity("ASP.NET_20_02_2023.Models.Film", b =>

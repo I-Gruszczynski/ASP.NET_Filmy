@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ASP.NET_20_02_2023.Migrations
 {
-    public partial class init : Migration
+    public partial class init4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace ASP.NET_20_02_2023.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nazwa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Opis = table.Column<int>(type: "int", nullable: false)
+                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,6 +43,18 @@ namespace ASP.NET_20_02_2023.Migrations
                         principalTable: "Kategorie",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Kategorie",
+                columns: new[] { "Id", "Nazwa", "Opis" },
+                values: new object[,]
+                {
+                    { 1, "Horror", "To jest horror" },
+                    { 2, "Komedia", "To jest komedia" },
+                    { 3, "Historyczny", "To jest historyczny" },
+                    { 4, "Wojenny", "To jest wojenny" },
+                    { 5, "Familijny", "To jest familijny" }
                 });
 
             migrationBuilder.InsertData(

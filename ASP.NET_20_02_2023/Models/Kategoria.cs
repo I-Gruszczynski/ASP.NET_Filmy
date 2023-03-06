@@ -9,7 +9,7 @@ namespace ASP.NET_20_02_2023.Models
     {
         public int Id { get; set; }
         public string Nazwa { get; set; }
-        public int Opis { get; set; }
+        public string Opis { get; set; }
 
         public ICollection<Film> Filmy { get; set; }
     }

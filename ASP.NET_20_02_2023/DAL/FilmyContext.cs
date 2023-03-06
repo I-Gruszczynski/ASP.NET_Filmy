@@ -18,17 +18,50 @@ namespace ASP.NET_20_02_2023.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+        modelBuilder.Entity<Kategoria>().HasData(
+                new Kategoria()
+                {
+                    Id = 1,
+                    Nazwa = "Horror",
+                    Opis = "To jest horror"
+                },
+                new Kategoria()
+                {
+                    Id = 2,
+                    Nazwa = "Komedia",
+                    Opis = "To jest komedia"
+                },
+                new Kategoria()
+                {
+                    Id = 3,
+                    Nazwa = "Historyczny",
+                    Opis = "To jest historyczny"
+                },
+                new Kategoria()
+                {
+                    Id = 4,
+                    Nazwa = "Wojenny",
+                    Opis = "To jest wojenny"
+                },
+                new Kategoria()
+                {
+                    Id = 5,
+                    Nazwa = "Familijny",
+                    Opis = "To jest familijny"
+                }
+
+                );
             modelBuilder.Entity<Film>().HasData(
 
                 new Film()
                 {
-                    Id=1,
-                    KategoriaId=1,
-                    Tytul="Osada",
-                    Opis= "Kiedy Lucius łamie zakaz i wchodzi do lasu, gdzie żyją zwierzęta-bestie, te przystępują do ataku na osadę.",
-                    Cena=10,
-                    Rezyser= "M. Night Shyamalan",
-                    DataDodania = new DateTime(2004,2,13)
+                    Id = 1,
+                    KategoriaId = 1,
+                    Tytul = "Osada",
+                    Opis = "Kiedy Lucius łamie zakaz i wchodzi do lasu, gdzie żyją zwierzęta-bestie, te przystępują do ataku na osadę.",
+                    Cena = 10,
+                    Rezyser = "M. Night Shyamalan",
+                    DataDodania = new DateTime(2004, 2, 13)
                 },
                 new Film()
                 {
@@ -117,8 +150,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Rezyser = "Andrew Adamson, Vicky Jenson",
                     DataDodania = new DateTime(2001, 4, 19)
                 }
-
                 );
+
         }
     }
 }

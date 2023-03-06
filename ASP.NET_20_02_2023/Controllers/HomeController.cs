@@ -1,4 +1,5 @@
-﻿using ASP.NET_20_02_2023.Models;
+﻿using ASP.NET_20_02_2023.DAL;
+using ASP.NET_20_02_2023.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,16 +12,24 @@ namespace ASP.NET_20_02_2023.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        FilmyContext db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(FilmyContext db)
         {
-            _logger = logger;
+            this.db = db;
         }
+        
+        //private readonly ILogger<HomeController> _logger;
 
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+          //  _logger = logger;
+        //}
+        
         public IActionResult Index()
         {
-            return View();
+            var kategoria = db.Kategorie.ToList();
+            return View(kategoria);
         }
 
         public IActionResult Privacy()
@@ -32,6 +41,11 @@ namespace ASP.NET_20_02_2023.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult StronyStatyczne(string nazwa)
+        {
+            return View(nazwa);
         }
     }
 }
