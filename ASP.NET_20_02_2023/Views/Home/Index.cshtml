@@ -2,15 +2,16 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+@*
 <header>
     <nav>
         @foreach (var kategoria in Model)
         {
-            <a href="#">@kategoria.Nazwa</a>
+            <a href="@Url.Action("Lista", "Filmy", new {nazwaKategorii = kategoria.Nazwa.ToUpper()})">@kategoria.Nazwa</a>
         }
     </nav>
 </header>
+    *@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
