@@ -47,5 +47,7 @@ namespace ASP.NET_20_02_2023.Controllers
         {
             return View(nazwa);
         }
+
+
     }
 }

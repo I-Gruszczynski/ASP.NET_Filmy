@@ -1,4 +1,5 @@
 ﻿using ASP.NET_20_02_2023.DAL;
+using ASP.NET_20_02_2023.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,13 +19,19 @@ namespace ASP.NET_20_02_2023.Controllers
 
         public IActionResult Lista(string nazwaKategorii)
         {
-            var kategoria = db.Kategorie.Include("Filmy").Where(k => k.Nazwa.ToUpper() == nazwaKategorii).Single();
+            var kategoriaModel = new KategoriaViewModels();  
+            kategoriaModel.Kategoria = db.Kategorie.Include("Filmy").Where(k => k.Nazwa.ToUpper() == nazwaKategorii).Single();
 
-            var filmy = kategoria.Filmy.ToList();
+            kategoriaModel.FilmyKategoria = kategoriaModel.Kategoria.Filmy.ToList();
 
-
+            kategoriaModel.FilmyNajnowsze = db.Filmy.OrderByDescending(k => k.DataDodania).Take(3);
             //ViewBag.nazwa;
-            return View(filmy);
+            return View(kategoriaModel);
+        }
+        public IActionResult Szczegoly(int id)
+        {
+            var idFilm = db.Filmy.Find(id);
+            return View(idFilm);
         }
     }
 }

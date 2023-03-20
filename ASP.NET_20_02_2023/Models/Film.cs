@@ -25,6 +25,8 @@ namespace ASP.NET_20_02_2023.Models
         public decimal? Cena { get; set; }
         public DateTime DataDodania { get; set; }
 
+        public int? DlugoscFilmu { get; set; }
+
         public int KategoriaId { get; set; }
         public Kategoria Kategoria { get; set; }
     }
