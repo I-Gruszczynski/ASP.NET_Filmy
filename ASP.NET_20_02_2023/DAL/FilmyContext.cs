@@ -61,7 +61,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Kiedy Lucius łamie zakaz i wchodzi do lasu, gdzie żyją zwierzęta-bestie, te przystępują do ataku na osadę.",
                     Cena = 10,
                     Rezyser = "M. Night Shyamalan",
-                    DataDodania = new DateTime(2004, 2, 13)
+                    DataDodania = new DateTime(2004, 2, 13),
+                    DlugoscFilmu = 90
                 },
                 new Film()
                 {
@@ -71,7 +72,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Po tym, jak dr Rose Carter bierze udział w traumatycznym zdarzeniu z udziałem pacjentki, wokół niej zaczynają dziać się niewytłumaczalne rzeczy.",
                     Cena = 30,
                     Rezyser = "Parker Finn",
-                    DataDodania = new DateTime(2022, 7, 24)
+                    DataDodania = new DateTime(2022, 7, 24),
+                    DlugoscFilmu = 90
                 },
                 new Film()
                 {
@@ -81,7 +83,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Derek zostaje zapomniany przez świat show biznesu. Kiedy kontrowersyjny projektant składa byłemu modelowi propozycję promowania najnowszej kolekcji, mężczyzna zgadza się bez namysłu.",
                     Cena = 30,
                     Rezyser = "Ben Stiller",
-                    DataDodania = new DateTime(2001, 2, 03)
+                    DataDodania = new DateTime(2001, 2, 03),
+                    DlugoscFilmu = 100
                 },
                 new Film()
                 {
@@ -91,7 +94,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Dwóch przyjaciół przemierza drogi i miasta Ameryki, by oddać zgubioną przez atrakcyjną kobietę walizkę.",
                     Cena = 10,
                     Rezyser = "Bobby Farrelly, Peter Farrelly",
-                    DataDodania = new DateTime(1994, 4, 30)
+                    DataDodania = new DateTime(1994, 4, 30),
+                    DlugoscFilmu = 110
                 },
                 new Film()
                 {
@@ -101,7 +105,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Generał Maximus - prawa ręka cesarza, szczęśliwy mąż i ojciec - w jednej chwili traci wszystko. Jako niewolnik-gladiator musi walczyć na arenie o przeżycie.",
                     Cena = 20,
                     Rezyser = "Ridley Scott",
-                    DataDodania = new DateTime(2000, 1, 18)
+                    DataDodania = new DateTime(2000, 1, 18),
+                    DlugoscFilmu = 120
                 },
                 new Film()
                 {
@@ -111,7 +116,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Sprzymierzone siły chińskiej armii i legendarnego zaginionego rzymskiego legionu bronią granicy przed generałem, który pragnie przejąć kontrolę nad Jedwabnym Szlakiem.",
                     Cena = 20,
                     Rezyser = "Daniel Lee",
-                    DataDodania = new DateTime(2015, 3, 26)
+                    DataDodania = new DateTime(2015, 3, 26),
+                    DlugoscFilmu = 130
                 }, new Film()
                 {
                     Id = 7,
@@ -120,7 +126,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "W poszukiwaniu zaginionego szeregowca wysłany zostaje doborowy oddział żołnierzy.",
                     Cena = 15,
                     Rezyser = "Steven Spielberg",
-                    DataDodania = new DateTime(1998, 11, 06)
+                    DataDodania = new DateTime(1998, 11, 06),
+                    DlugoscFilmu = 140
                 },
                 new Film()
                 {
@@ -130,7 +137,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "W okupowanej przez nazistów Francji oddział złożony z Amerykanów żydowskiego pochodzenia planuje zamach na Hitlera.",
                     Cena = 10,
                     Rezyser = "Quentin Tarantino, Eli Roth",
-                    DataDodania = new DateTime(2009, 1, 20)
+                    DataDodania = new DateTime(2009, 1, 20),
+                    DlugoscFilmu = 150
                 }, new Film()
                 {
                     Id = 9,
@@ -139,7 +147,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "Kot w Butach wraz z kompanami organizuje skok, mający na celu znalezienie i porwanie mitycznej gęsi znoszącej złote jaja.",
                     Cena = 35,
                     Rezyser = "Chris Miller",
-                    DataDodania = new DateTime(2011, 8, 02)
+                    DataDodania = new DateTime(2011, 8, 02),
+                    DlugoscFilmu = 160
                 }, new Film()
                 {
                     Id = 10,
@@ -148,7 +157,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Opis = "By odzyskać swój dom, brzydki ogr z gadatliwym osłem wyruszają uwolnić piękną księżniczkę.",
                     Cena = 25,
                     Rezyser = "Andrew Adamson, Vicky Jenson",
-                    DataDodania = new DateTime(2001, 4, 19)
+                    DataDodania = new DateTime(2001, 4, 19),
+                    DlugoscFilmu = 170
                 }
                 );
 

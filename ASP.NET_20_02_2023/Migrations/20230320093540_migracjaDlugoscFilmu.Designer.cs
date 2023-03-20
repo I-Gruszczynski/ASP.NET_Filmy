@@ -4,14 +4,16 @@ using ASP.NET_20_02_2023.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NET_20_02_2023.Migrations
 {
     [DbContext(typeof(FilmyContext))]
-    partial class FilmyContextModelSnapshot : ModelSnapshot
+    [Migration("20230320093540_migracjaDlugoscFilmu")]
+    partial class migracjaDlugoscFilmu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -153,7 +155,6 @@ namespace ASP.NET_20_02_2023.Migrations
                             Id = 9,
                             Cena = 35m,
                             DataDodania = new DateTime(2011, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DlugoscFilmu = 160,
                             KategoriaId = 5,
                             Opis = "Kot w Butach wraz z kompanami organizuje skok, mający na celu znalezienie i porwanie mitycznej gęsi znoszącej złote jaja.",
                             Rezyser = "Chris Miller",
@@ -164,7 +165,6 @@ namespace ASP.NET_20_02_2023.Migrations
                             Id = 10,
                             Cena = 25m,
                             DataDodania = new DateTime(2001, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DlugoscFilmu = 170,
                             KategoriaId = 5,
                             Opis = "By odzyskać swój dom, brzydki ogr z gadatliwym osłem wyruszają uwolnić piękną księżniczkę.",
                             Rezyser = "Andrew Adamson, Vicky Jenson",
