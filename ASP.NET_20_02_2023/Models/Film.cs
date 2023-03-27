@@ -29,5 +29,7 @@ namespace ASP.NET_20_02_2023.Models
 
         public int KategoriaId { get; set; }
         public Kategoria Kategoria { get; set; }
+
+        public string Plakat { get; set; }
     }
 }
