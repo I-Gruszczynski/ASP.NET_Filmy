@@ -30,7 +30,7 @@ namespace ASP.NET_20_02_2023.Controllers
         }
         public IActionResult Szczegoly(int id)
         {
-            var idFilm = db.Filmy.Find(id);
+            var idFilm = db.Filmy.Include("Kategoria").Where(x => x.Id == id).Single();
             return View(idFilm);
         }
     }
