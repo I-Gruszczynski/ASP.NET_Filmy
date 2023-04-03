@@ -1,0 +1,100 @@
+﻿@model KategoriaViewModels
+@{
+    ViewData["Title"] = "Lista";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Lista</h2>
+</div>
+<div class="m-auto">
+<table class="m-auto" style="border:1px solid #ccc">
+    <thead>
+        <tr class="bg-primary">
+            <th class="p-4 pt-2 pb-2">
+                Tytuł filmu
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Reżyser
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Data dodania
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Cena
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Dlugosc Filmu
+            </th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var film in Model.FilmyKategoria)
+        {
+            <tr class="p-4">
+                <td>
+                    <a href="@Url.Action("Szczegoly", "Filmy", new {id = film.Id })">@film.Tytul</a>
+                </td>
+                <td>
+                    @film.Rezyser
+                </td>
+                <td>
+                    @film.DataDodania.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @film.Cena
+                </td>
+                <td>
+                    @film.DlugoscFilmu min
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="text-center">
+    <h2 class="display-4">Najnowsze filmy</h2>
+</div>
+<table class="m-auto" style="border:1px solid #ccc">
+    <thead>
+        <tr class="bg-primary">
+            <th class="p-4 pt-2 pb-2">
+                Tytuł filmu
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Reżyser
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Data dodania
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Cena
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Dlugosc Filmu
+            </th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var film in Model.FilmyNajnowsze)
+        {
+            <tr class="p-4">
+                <td>
+                    @film.Tytul
+                </td>
+                <td>
+                    @film.Rezyser
+                </td>
+                <td>
+                    @film.DataDodania.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @film.Cena
+                </td>
+                <td>
+                    @film.DlugoscFilmu min
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
