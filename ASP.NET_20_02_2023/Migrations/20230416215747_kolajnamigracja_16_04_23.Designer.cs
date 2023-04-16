@@ -4,14 +4,16 @@ using ASP.NET_20_02_2023.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NET_20_02_2023.Migrations
 {
     [DbContext(typeof(FilmyContext))]
-    partial class FilmyContextModelSnapshot : ModelSnapshot
+    [Migration("20230416215747_kolajnamigracja_16_04_23")]
+    partial class kolajnamigracja_16_04_23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
