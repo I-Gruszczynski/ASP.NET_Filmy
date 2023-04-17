@@ -23,7 +23,7 @@ namespace ASP.NET_20_02_2023.Controllers
 
         public IActionResult Lista(string nazwaKategorii)
         {
-            var kategoriaModel = new KategoriaViewModels();  
+            var kategoriaModel = new KategoriaViewModels();
             kategoriaModel.Kategoria = db.Kategorie.Include("Filmy").Where(k => k.Nazwa.ToUpper() == nazwaKategorii).Single();
 
             kategoriaModel.FilmyKategoria = kategoriaModel.Kategoria.Filmy.ToList();
@@ -42,34 +42,89 @@ namespace ASP.NET_20_02_2023.Controllers
         public ActionResult DodajFilm()
         {
             DodawanieFilmowViewModel dodaj = new DodawanieFilmowViewModel();
-            
+
             var kategoria = db.Kategorie.ToList();
 
             dodaj.kategoria = kategoria;
-            
-            return View(dodaj); 
+
+            return View(dodaj);
         }
 
         [HttpPost]
         public ActionResult DodajFilm(DodawanieFilmowViewModel obj)
-        { 
+        {
             obj.film.DataDodania = System.DateTime.Now;
 
-            var plakatFolderPath = Path.Combine(hostingEnvironment.WebRootPath, "content");
+            if (obj.film.Cena == null)
+            {
+                obj.film.Cena = 0.00m;
+            }
 
-            var unikatNazwaPlakatu = Guid.NewGuid()+"_"+obj.Plakat.FileName;
+            if (TryValidateModel(obj.film, "Film") && ModelState.IsValid)
+            {
 
-            var plakatPath = Path.Combine(plakatFolderPath, unikatNazwaPlakatu);
 
-            obj.Plakat.CopyTo(new FileStream(plakatPath, FileMode.Create));
+                var plakatFolderPath = Path.Combine(hostingEnvironment.WebRootPath, "content");
 
-            obj.film.Plakat = unikatNazwaPlakatu;
+                var unikatNazwaPlakatu = Guid.NewGuid() + "_" + obj.Plakat.FileName;
 
-            db.Filmy.Add(obj.film);
+                var plakatPath = Path.Combine(plakatFolderPath, unikatNazwaPlakatu);
 
+                obj.Plakat.CopyTo(new FileStream(plakatPath, FileMode.Create));
+
+                obj.film.Plakat = unikatNazwaPlakatu;
+
+                db.Filmy.Add(obj.film);
+
+                db.SaveChanges();
+                TempData["Dodaj"] = "Dodao Film!";
+
+                return RedirectToAction("Dodaj Film");
+            }
+            return View(obj);
+        }
+        [HttpPost]
+        public IActionResult Szukaj(string tekst)
+        {
+
+            if (!String.IsNullOrEmpty(tekst))
+            {
+                var filmy = db.Filmy.Where(f => f.Tytul.Contains(tekst));
+
+                ViewBag.Fraza = tekst;
+
+                filmy.ToList();
+
+                return View(filmy);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult EdytujFilm(int filmId)
+        {
+            var film = db.Filmy.Where(f => f.Id == filmId).FirstOrDefault();
+
+            return View(film);
+        }
+
+        [HttpPost]
+        public IActionResult EdytujFilm(Film filmEdited)
+        {
+            var film = db.Filmy.Where(f => f.Id == filmEdited.Id).FirstOrDefault();
+
+            film.Tytul = filmEdited.Tytul;
+            film.Rezyser = filmEdited.Rezyser;
+            film.Opis = filmEdited.Opis;
+
+            film.DataDodania = DateTime.Now;
+
+            db.Entry(film).State = EntityState.Modified;
             db.SaveChanges();
 
-            return RedirectToAction("Dodaj Film"); 
+            return RedirectToAction("Szczegoly", new { idFilmu = film.Id});
+        }
+            
         }
     }
-}
+
