@@ -1,4 +1,4 @@
-﻿@model ASP.NET_20_02_2023.Models.DodawanieFilmowViewModel
+﻿@model ASP.NET_20_02_2023.Models.Film
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Dodaj Film";
@@ -6,54 +6,39 @@
 
 
 
-@using (Html.BeginForm("DodajFilm", "Filmy", FormMethod.Post, new { enctype = "mulipart/form-data" }))
+@using (Html.BeginForm("EdytujFilm", "Filmy", FormMethod.Post))
 {
-    if (TempData["Dodaj"] != null)
-    {
-        <div class="alert-info">TempData["Dodaj"]</div>
-    }
 
+<div>
     <div>
-        <div class="form-group">
-            @Html.LabelFor(f => f.film.Rezyser, "Podaj rezystera:")
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(f => f.film.Rezyser, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(f => f.film.Tytul, "Podaj rezystera:")
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(f => f.film.Tytul, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(f => f.film.Opis, "Podaj rezystera:")
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(f => f.film.Opis, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(f => f.film.Cena, "Podaj rezystera:")
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(f => f.film.Cena, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(f => f.Plakat, "Wybierz plakat:")
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(f => f.Plakat, new { @type = "file" })
-            <span asp-validation-for="Plakat" class="alert-danger"></span>
-        </div>
+        <img src="~/content/@Model.Plakat" style="height: 20rem" />
     </div>
-    <td>Kategoria:</td>
-    @foreach (var kategoria in Model.kategoria)
-    {
-        <div class="form-radio-btn">@Html.RadioButtonFor(f => f.film.KategoriaId, kategoria.Id, new { required = true })</div>
-        <div class="form-radio-btn">@Html.LabelFor(f => f.film.KategoriaId, @kategoria.Nazwa)</div>
-    }
+    @Html.HiddenFor(f=>f.Id)
+    <div class="form-group">
+        Reżyser<br/>
+        @Html.TextBoxFor(f => f.Rezyser, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Tytuł<br />
+        @Html.TextBoxFor(f => f.Tytul, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Cena<br />
+        @Html.TextBoxFor(f => f.Cena, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Data<br />
+        @Html.TextBoxFor(f => f.DataDodania, new { @type = "datatime-local" })
+    </div>
+    <div class="form-group">
+        Opis<br />
+        @Html.TextBoxFor(f => f.Opis, new { @class = "form-control", rows="4" })
+    </div>
+
+</div>
+   
     <div class="form-group">
 
-        <button type="submit" class="btn btn-primary">Dodaj</button>
+        <button type="submit" class="btn btn-primary">Zpisz zmiany</button>
     </div>
 }

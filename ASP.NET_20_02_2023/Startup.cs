@@ -27,6 +27,7 @@ namespace ASP.NET_20_02_2023
         {
             services.AddControllersWithViews();
             services.AddDbContext<FilmyContext>(OptionsBuilderConfigurationExtensions=>OptionsBuilderConfigurationExtensions.UseSqlServer(Configuration.GetConnectionString("FilmyCS")));
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +49,8 @@ namespace ASP.NET_20_02_2023
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

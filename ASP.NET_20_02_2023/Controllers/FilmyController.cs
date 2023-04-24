@@ -122,7 +122,7 @@ namespace ASP.NET_20_02_2023.Controllers
             db.Entry(film).State = EntityState.Modified;
             db.SaveChanges();
 
-            return RedirectToAction("Szczegoly", new { idFilmu = film.Id});
+            return RedirectToAction("Szczegoly", new { id = film.Id});
         }
             
         }

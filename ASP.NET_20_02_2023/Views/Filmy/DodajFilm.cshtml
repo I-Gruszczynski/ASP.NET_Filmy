@@ -6,7 +6,7 @@
 
 
 
-@using (Html.BeginForm("EdytujFilm", "Filmy", FormMethod.Post))
+@using (Html.BeginForm("DodajFilm", "Filmy", FormMethod.Post))
 {
     if (TempData["Dodaj"] != null)
     {
@@ -32,12 +32,12 @@
     </div>
     <div class="form-group">
         Data Dodania<br />
-        @Model.DataDodania
+        @Html.TextBoxFor(f => f.film.DataDodania, new { @class = "form-control" })
     </div>
 </div>
    
     <div class="form-group">
 
-        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+        <button type="submit" class="btn btn-primary">Dodaj</button>
     </div>
 }
