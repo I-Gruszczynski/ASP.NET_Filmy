@@ -13,7 +13,7 @@ namespace ASP.NET_20_02_2023.Controllers
     {
         FilmyContext db;
 
-        public KoszykController(FilmyContext dbs)
+        public KoszykController(FilmyContext db)
         {
             this.db = db;
         }
@@ -70,6 +70,18 @@ namespace ASP.NET_20_02_2023.Controllers
                 }
             }
             return -1;
+        }
+
+        public IActionResult UsunZKoszyka(int id)
+        {
+            var model = new UsunRzeczViewModel()
+            {
+                RzeczId = id,
+                IloscRzeczy = MenadzerKoszyka.UsunZKoszyka(HttpContext.Session, id),
+                WartoscKoszyka = MenadzerKoszyka.UstawWartosc(HttpContext.Session)
+
+            };
+            return Json(model);
         }
     }
 }
