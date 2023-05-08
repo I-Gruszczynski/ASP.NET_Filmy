@@ -1,20 +1,20 @@
-﻿@model ASP.NET_20_02_2023.Models.KoszykRzecz
+﻿@model IEnumerable<KoszykRzecz>
 
 <div>
-    @foreach (var itemCart in Model.Film)
+    @foreach (var itemCart in Model)
     {
     <ul>
         <li class="m-auto">
             <p>Tytul</p>
-            @Model.Film.Tytul
+            @itemCart.Film.Tytul
         </li>
         <li class="m-auto">
             <p>Ilosc</p>
-            @Model.Ilosc
+            @itemCart.Ilosc
         </li>
         <li class="m-auto">
             <p>Cena</p>
-            @Model.Wartosc
+            @itemCart.Wartosc
         </li>
     </ul>
     }
