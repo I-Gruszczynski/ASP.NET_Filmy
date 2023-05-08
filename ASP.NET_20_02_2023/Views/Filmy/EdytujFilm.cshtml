@@ -1,0 +1,44 @@
+﻿@model ASP.NET_20_02_2023.Models.Film
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Dodaj Film";
+}
+
+
+
+@using (Html.BeginForm("EdytujFilm", "Filmy", FormMethod.Post))
+{
+
+<div>
+    <div>
+        <img src="~/content/@Model.Plakat" style="height: 20rem" />
+    </div>
+    @Html.HiddenFor(f=>f.Id)
+    <div class="form-group">
+        Reżyser<br/>
+        @Html.TextBoxFor(f => f.Rezyser, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Tytuł<br />
+        @Html.TextBoxFor(f => f.Tytul, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Cena<br />
+        @Html.TextBoxFor(f => f.Cena, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Data<br />
+        @Html.TextBoxFor(f => f.DataDodania, new { @type = "datatime-local" })
+    </div>
+    <div class="form-group">
+        Opis<br />
+        @Html.TextBoxFor(f => f.Opis, new { @class = "form-control", rows="4" })
+    </div>
+
+</div>
+   
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-primary">Zpisz zmiany</button>
+    </div>
+}

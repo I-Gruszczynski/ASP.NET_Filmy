@@ -10,14 +10,20 @@
         <li>@(await Component.InvokeAsync("FilmyKategoria", new { nazwaKategorii = @Model.Kategoria.Nazwa}))</li>
     </ul>
 </aside>
+<div class="col-3">
+    <img src="~/img/@Model.Plakat" style="width: 250px;" />
+
+</div>
 <div style="float:left">
     <div class="text-center">
         <h2 class="display-4">Szczegoly filmu</h2>
     </div>
+    <!--<p></p>-->
     <div class="m-auto">
 
         <p>@Model.Opis</p>
 
     </div>
 </div>
+<button class="btn btn-primary"><a href="@Url.Action("EdytujFilm", "Filmy", new {filmId = Model.Id })" style="color:white">Edytuj Film</a></button>
 <div style="clear:both"></div>

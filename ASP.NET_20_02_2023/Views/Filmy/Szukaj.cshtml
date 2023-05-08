@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<ASP.NET_20_02_2023.Models.Film>
+@{ 
+    ViewData["Title"] = "Lista";
+    Layout = "_Layout"; 
+}
+<table class="m-auto" style="border:1px solid #ccc">
+    <thead>
+        <tr class="bg-primary">
+            <th class="p-4 pt-2 pb-2">
+                Tytuł filmu
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Reżyser
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Data dodania
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Cena
+            </th>
+            <th class="p-4 pt-2 pb-2">
+                Dlugosc Filmu
+            </th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var film in Model)
+        {
+            <tr class="p-4">
+                <td>
+                    <a href="@Url.Action("Szukaj", "Filmy", new {id = film.Id })">@film.Tytul</a>
+                </td>
+                <td>
+                    @film.Rezyser
+                </td>
+                <td>
+                    @film.DataDodania.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @film.Cena
+                </td>
+                <td>
+                    @film.DlugoscFilmu min
+                </td>
+            </tr>
+}
+    </tbody>
+</table>

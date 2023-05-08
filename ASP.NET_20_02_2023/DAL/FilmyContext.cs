@@ -62,7 +62,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 10,
                     Rezyser = "M. Night Shyamalan",
                     DataDodania = new DateTime(2004, 2, 13),
-                    DlugoscFilmu = 90
+                    DlugoscFilmu = 90,
+                    Plakat = "../../content/osada.jpg"
                 },
                 new Film()
                 {
@@ -73,7 +74,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 30,
                     Rezyser = "Parker Finn",
                     DataDodania = new DateTime(2022, 7, 24),
-                    DlugoscFilmu = 90
+                    DlugoscFilmu = 90,
+                    Plakat = "../../content/usmiechnijSie.jpg"
                 },
                 new Film()
                 {
@@ -84,7 +86,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 30,
                     Rezyser = "Ben Stiller",
                     DataDodania = new DateTime(2001, 2, 03),
-                    DlugoscFilmu = 100
+                    DlugoscFilmu = 100,
+                    Plakat = "../../content/zoolander.jpg"
                 },
                 new Film()
                 {
@@ -95,7 +98,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 10,
                     Rezyser = "Bobby Farrelly, Peter Farrelly",
                     DataDodania = new DateTime(1994, 4, 30),
-                    DlugoscFilmu = 110
+                    DlugoscFilmu = 110,
+                    Plakat = "../../content/glupiIGlupszy.jpg"
                 },
                 new Film()
                 {
@@ -106,7 +110,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 20,
                     Rezyser = "Ridley Scott",
                     DataDodania = new DateTime(2000, 1, 18),
-                    DlugoscFilmu = 120
+                    DlugoscFilmu = 120,
+                    Plakat = "../../content/gladiator.jpg"
                 },
                 new Film()
                 {
@@ -117,8 +122,10 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 20,
                     Rezyser = "Daniel Lee",
                     DataDodania = new DateTime(2015, 3, 26),
-                    DlugoscFilmu = 130
-                }, new Film()
+                    DlugoscFilmu = 130,
+                    Plakat = "../../content/wojnaImperiow.jpg"
+                }, 
+                new Film()
                 {
                     Id = 7,
                     KategoriaId = 4,
@@ -127,7 +134,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 15,
                     Rezyser = "Steven Spielberg",
                     DataDodania = new DateTime(1998, 11, 06),
-                    DlugoscFilmu = 140
+                    DlugoscFilmu = 140,
+                    Plakat = "../../content/szeregowiecRyan.jpg"
                 },
                 new Film()
                 {
@@ -138,8 +146,10 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 10,
                     Rezyser = "Quentin Tarantino, Eli Roth",
                     DataDodania = new DateTime(2009, 1, 20),
-                    DlugoscFilmu = 150
-                }, new Film()
+                    DlugoscFilmu = 150,
+                    Plakat = "../../content/bekartyWojny.jpg"
+                }, 
+                new Film()
                 {
                     Id = 9,
                     KategoriaId = 5,
@@ -148,8 +158,10 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 35,
                     Rezyser = "Chris Miller",
                     DataDodania = new DateTime(2011, 8, 02),
-                    DlugoscFilmu = 160
-                }, new Film()
+                    DlugoscFilmu = 160,
+                    Plakat = "../../content/kotWButach.jpg"
+                }, 
+                new Film()
                 {
                     Id = 10,
                     KategoriaId = 5,
@@ -158,7 +170,8 @@ namespace ASP.NET_20_02_2023.DAL
                     Cena = 25,
                     Rezyser = "Andrew Adamson, Vicky Jenson",
                     DataDodania = new DateTime(2001, 4, 19),
-                    DlugoscFilmu = 170
+                    DlugoscFilmu = 170,
+                    Plakat = "../../content/shrek.jpg"
                 }
                 );
 

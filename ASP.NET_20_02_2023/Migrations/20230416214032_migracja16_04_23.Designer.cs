@@ -4,14 +4,16 @@ using ASP.NET_20_02_2023.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NET_20_02_2023.Migrations
 {
     [DbContext(typeof(FilmyContext))]
-    partial class FilmyContextModelSnapshot : ModelSnapshot
+    [Migration("20230416214032_migracja16_04_23")]
+    partial class migracja16_04_23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,7 +85,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 90,
                             KategoriaId = 1,
                             Opis = "Po tym, jak dr Rose Carter bierze udział w traumatycznym zdarzeniu z udziałem pacjentki, wokół niej zaczynają dziać się niewytłumaczalne rzeczy.",
-                            Plakat = "../../content/usmiechnijSie.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Parker Finn",
                             Tytul = "Usmiechnij sie"
                         },
@@ -95,7 +97,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 100,
                             KategoriaId = 2,
                             Opis = "Derek zostaje zapomniany przez świat show biznesu. Kiedy kontrowersyjny projektant składa byłemu modelowi propozycję promowania najnowszej kolekcji, mężczyzna zgadza się bez namysłu.",
-                            Plakat = "../../content/zoolander.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Ben Stiller",
                             Tytul = "Zoolander"
                         },
@@ -107,7 +109,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 110,
                             KategoriaId = 2,
                             Opis = "Dwóch przyjaciół przemierza drogi i miasta Ameryki, by oddać zgubioną przez atrakcyjną kobietę walizkę.",
-                            Plakat = "../../content/glupiIGlupszy.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Bobby Farrelly, Peter Farrelly",
                             Tytul = "Głupi i głupszy"
                         },
@@ -119,7 +121,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 120,
                             KategoriaId = 3,
                             Opis = "Generał Maximus - prawa ręka cesarza, szczęśliwy mąż i ojciec - w jednej chwili traci wszystko. Jako niewolnik-gladiator musi walczyć na arenie o przeżycie.",
-                            Plakat = "../../content/gladiator.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Ridley Scott",
                             Tytul = "Gladiator"
                         },
@@ -131,7 +133,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 130,
                             KategoriaId = 3,
                             Opis = "Sprzymierzone siły chińskiej armii i legendarnego zaginionego rzymskiego legionu bronią granicy przed generałem, który pragnie przejąć kontrolę nad Jedwabnym Szlakiem.",
-                            Plakat = "../../content/wojnaImperiow.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Daniel Lee",
                             Tytul = "Wojna imperiów"
                         },
@@ -143,7 +145,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 140,
                             KategoriaId = 4,
                             Opis = "W poszukiwaniu zaginionego szeregowca wysłany zostaje doborowy oddział żołnierzy.",
-                            Plakat = "../../content/szeregowiecRyan.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Steven Spielberg",
                             Tytul = "Szeregowiec Ryan"
                         },
@@ -155,7 +157,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 150,
                             KategoriaId = 4,
                             Opis = "W okupowanej przez nazistów Francji oddział złożony z Amerykanów żydowskiego pochodzenia planuje zamach na Hitlera.",
-                            Plakat = "../../content/bekartyWojny.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Quentin Tarantino, Eli Roth",
                             Tytul = "Bękarty wojny"
                         },
@@ -167,7 +169,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 160,
                             KategoriaId = 5,
                             Opis = "Kot w Butach wraz z kompanami organizuje skok, mający na celu znalezienie i porwanie mitycznej gęsi znoszącej złote jaja.",
-                            Plakat = "../../content/kotWButach.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Chris Miller",
                             Tytul = "Kot w Butach"
                         },
@@ -179,7 +181,7 @@ namespace ASP.NET_20_02_2023.Migrations
                             DlugoscFilmu = 170,
                             KategoriaId = 5,
                             Opis = "By odzyskać swój dom, brzydki ogr z gadatliwym osłem wyruszają uwolnić piękną księżniczkę.",
-                            Plakat = "../../content/shrek.jpg",
+                            Plakat = "../../content/osada.jpg",
                             Rezyser = "Andrew Adamson, Vicky Jenson",
                             Tytul = "Shrek"
                         });

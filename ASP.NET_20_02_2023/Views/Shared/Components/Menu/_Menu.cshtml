@@ -1,11 +1,23 @@
 ﻿@model IEnumerable<ASP.NET_20_02_2023.Models.Kategoria>
 @{
 }
-<header class="menu-bar text-center mt-3 mb-3">
-    <nav class="menu">
-        @foreach(var kategoria in Model)
+<header class="menu-bar text-center mt-0 mb-3">
+    <nav class="navbar navbar-light bg-light justify-content-between pt-3 pb-3 mt-0 mb-0">
+        <a class="navbar-brand">Navbar</a>
+        @using (Html.BeginForm("Szukaj", "Filmy", FormMethod.Post, new { @class = "form-inline" }))
         {
-        <a href="@Url.Action("Lista", "Filmy", new {nazwaKategorii = kategoria.Nazwa.ToUpper()})" class="m-4 mt-5 mb-5">@kategoria.Nazwa</a>
+         @Html.TextBox("tekst", null, new { @class = "form-control mr-sm-2", type = "search", placeholder = "Search"});
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>    
+        }
+    @*<form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>*@
+    </nav>
+<nav class="menu mt-3">
+        @foreach (var kategoria in Model)
+        {
+        <a href="@Url.Action("Lista", "Filmy", new { nazwaKategorii = kategoria.Nazwa.ToUpper() })" class="m-4 mt-5 mb-5">@kategoria.Nazwa</a>
         }
     </nav>
 </header>

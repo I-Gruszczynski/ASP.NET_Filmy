@@ -1,0 +1,43 @@
+﻿@model ASP.NET_20_02_2023.Models.DodawanieFilmowViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Dodaj Film";
+}
+
+
+
+@using (Html.BeginForm("DodajFilm", "Filmy", FormMethod.Post))
+{
+    if (TempData["Dodaj"] != null)
+    {
+        <div class="alert-info">TempData["Dodaj"]</div>
+    }
+
+<div>
+    <div class="form-group">
+        Rezyser<br />
+        @Html.TextBoxFor(f => f.film.Rezyser, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Tytul<br />
+        @Html.TextBoxFor(f => f.film.Tytul, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Opis<br />
+        @Html.TextBoxFor(f => f.film.Opis, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Cena<br />
+        @Html.TextBoxFor(f => f.film.Cena, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        Data Dodania<br />
+        @Html.TextBoxFor(f => f.film.DataDodania, new { @class = "form-control" })
+    </div>
+</div>
+   
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+    </div>
+}
