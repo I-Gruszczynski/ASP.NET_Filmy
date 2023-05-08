@@ -23,7 +23,7 @@ namespace ASP.NET_20_02_2023.Controllers
 
         public IActionResult Lista(string nazwaKategorii)
         {
-            var kategoriaModel = new KategoriaViewModels();
+            var kategoriaModel = new KategoriaViewModels();  
             kategoriaModel.Kategoria = db.Kategorie.Include("Filmy").Where(k => k.Nazwa.ToUpper() == nazwaKategorii).Single();
 
             kategoriaModel.FilmyKategoria = kategoriaModel.Kategoria.Filmy.ToList();
@@ -58,7 +58,7 @@ namespace ASP.NET_20_02_2023.Controllers
             if (obj.film.Cena == null)
             {
                 obj.film.Cena = 0.00m;
-            }
+    }
 
             if (TryValidateModel(obj.film, "Film") && ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace ASP.NET_20_02_2023.Controllers
                 TempData["Dodaj"] = "Dodao Film!";
 
                 return RedirectToAction("Dodaj Film");
-            }
+}
             return View(obj);
         }
         [HttpPost]
