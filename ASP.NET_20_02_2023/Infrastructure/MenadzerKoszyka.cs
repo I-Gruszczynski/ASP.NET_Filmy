@@ -46,5 +46,11 @@ namespace ASP.NET_20_02_2023.Infrastructure
 
             return cart;
         }
+
+        public static decimal? UstawWartosc(ISession session)
+        {
+            var rzeczy = WezRzeczy(session);
+            return rzeczy.Sum(rz => rz.Ilosc * rz.Wartosc);
+        }
     }
 }

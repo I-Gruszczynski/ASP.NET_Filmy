@@ -3,19 +3,20 @@
 <div>
     @foreach (var itemCart in Model)
     {
-    <ul>
+    <ul id="catItem-@itemCart.Film.Id">
         <li class="m-auto">
             <p>Tytul</p>
             @itemCart.Film.Tytul
         </li>
         <li class="m-auto">
             <p>Ilosc</p>
-            @itemCart.Ilosc
-        </li>
+            <span id="itemQuantity-@itemCart.Film.Id">@itemCart.Ilosc</span>
+</li>
         <li class="m-auto">
             <p>Cena</p>
             @itemCart.Wartosc zł
-        </li>
+</li>
+        <span class="trash">&#128465</span>
     </ul>
     }
 </div>
@@ -24,4 +25,21 @@
 </div>
 @section Script{ 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type ="text/javascript">
+        $(".trash").click(function () {
+            var ElementKoszykaId = $(this).data('id');
+            if (ElementKoszykaId != '') {
+                $.post("/Koszyk/UsunZKoszyka", { "id": ElementKoszykaId }, function (response)
+                {
+                    if (response.iloscRzeczy == 0) {
+                        $("#cartItem-" + response.RzeczId).fadeOut("slow");
+                    }
+                    else
+                    {
+                        $("itemQuantity-" + response.itemId).text(response.iloscRzeczy);
+                    }
+                })
+            }
+        });
+    </script>
 }
