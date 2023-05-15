@@ -1,4 +1,5 @@
 using ASP.NET_20_02_2023.DAL;
+using ASP.NET_20_02_2023.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,8 +26,16 @@ namespace ASP.NET_20_02_2023
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<IdentityAppContext>();
             services.AddControllersWithViews();
             services.AddDbContext<FilmyContext>(OptionsBuilderConfigurationExtensions=>OptionsBuilderConfigurationExtensions.UseSqlServer(Configuration.GetConnectionString("FilmyCS")));
+            services.AddDbContext<IdentityAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FilmyCS")));
             services.AddSession();
         }
 
@@ -47,6 +56,8 @@ namespace ASP.NET_20_02_2023
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

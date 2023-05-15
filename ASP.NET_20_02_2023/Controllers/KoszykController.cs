@@ -21,24 +21,29 @@ namespace ASP.NET_20_02_2023.Controllers
         public IActionResult Index()
         {
             var cart = SessionHelper.GetObjectFromJson<List<KoszykRzecz>>(HttpContext.Session, Consts.KoszykSessionKey);
-
+            if (cart == null)
+            {
+                cart = new List<KoszykRzecz>();
+            }
             ViewBag.CenaCalkowita = cart.Sum(item => item.Ilosc * item.Film.Cena);
             
             return View(cart);
         }
 
+        [Route("Dodaj/{id}")]
         public IActionResult DodajDoKoszyka(int id)
         {
+            var cart = SessionHelper.GetObjectFromJson<List<KoszykRzecz>>(HttpContext.Session, Consts.KoszykSessionKey);
             var film = db.Filmy.Find(id);
-            if (SessionHelper.GetObjectFromJson<List<KoszykRzecz>>(HttpContext.Session, Consts.KoszykSessionKey)==null)
+            if (cart == null)
             {
-                List<KoszykRzecz> cart = new List<KoszykRzecz>();
+                cart = new List<KoszykRzecz>();
 
                 cart.Add(new KoszykRzecz { Film = film, Ilosc = 1, Wartosc = film.Cena});
             }
             else
             {
-                List<KoszykRzecz> cart= SessionHelper.GetObjectFromJson<List<KoszykRzecz>>(HttpContext.Session, Consts.KoszykSessionKey);
+                 cart= SessionHelper.GetObjectFromJson<List<KoszykRzecz>>(HttpContext.Session, Consts.KoszykSessionKey);
 
                 int index = PobierzIndeks(id);
 
@@ -51,12 +56,12 @@ namespace ASP.NET_20_02_2023.Controllers
                     cart.Add(new KoszykRzecz { Film = film, Ilosc = 1, Wartosc = film.Cena});
                 }
 
-                SessionHelper.SetObjectAsJson(HttpContext.Session, Consts.KoszykSessionKey, cart);
             }
+            SessionHelper.SetObjectAsJson(HttpContext.Session, Consts.KoszykSessionKey, cart);
 
             return RedirectToAction("Index");
         }
-        [Route("Dodaj/{id}")]
+       
 
         private int PobierzIndeks(int id)
         {

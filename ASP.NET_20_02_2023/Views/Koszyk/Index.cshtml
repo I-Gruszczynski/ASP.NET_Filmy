@@ -10,35 +10,33 @@
         </li>
         <li class="m-auto">
             <p>Ilosc</p>
-            <span id="itemQuantity-@itemCart.Film.Id">@itemCart.Ilosc</span>
+            <span id="cartItem-@itemCart.Film.Id">@itemCart.Ilosc</span>
 </li>
         <li class="m-auto">
             <p>Cena</p>
-            @itemCart.Wartosc zł
+            <p class="table-warning">@itemCart.Wartosc zł</p>
 </li>
-        <span class="trash">&#128465</span>
+        <li><a href="#"  class="trash" data-id="@itemCart.Film.Id">#&#128465</a></li>
     </ul>
     }
 </div>
 <div>
     Razem: @ViewBag.CenaCalowita zł
 </div>
-@section Script{ 
+@section Scripts{ 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type ="text/javascript">
         $(".trash").click(function () {
             var ElementKoszykaId = $(this).data('id');
             if (ElementKoszykaId != '') {
-                $.post("/Koszyk/UsunZKoszyka", { "id": ElementKoszykaId }, function (response)
-                {
+                $.post("/Koszyk/UsunZKoszyka", { "id": ElementKoszykaId }, function (response) {
                     if (response.iloscRzeczy == 0) {
                         $("#cartItem-" + response.RzeczId).fadeOut("slow");
                     }
-                    else
-                    {
+                    else {
                         $("itemQuantity-" + response.itemId).text(response.iloscRzeczy);
                     }
-                })
+                });
             }
         });
     </script>
